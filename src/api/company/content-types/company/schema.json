@@ -1,0 +1,34 @@
+{
+    "kind": "collectionType",
+    "collectionName": "companies",
+    "info": {
+      "singularName": "company",
+      "pluralName": "companies",
+      "displayName": "Company"
+    },
+    "options": {
+      "draftAndPublish": false
+    },
+    "attributes": {
+      "name": { "type": "string", "required": true },
+      "registration_no": { "type": "string" },
+      "email": { "type": "email" },
+      "address": { "type": "richtext" },
+      "contact_no": { "type": "string" },
+      "logo": { "type": "media", "multiple": false },
+      "is_active": { "type": "boolean", "default": true },
+      "departments": {
+        "type": "relation",
+        "relation": "oneToMany",
+        "target": "api::department.department",
+        "mappedBy": "company"
+      },
+      "branches": {
+        "type": "relation",
+        "relation": "oneToMany",
+        "target": "api::branch.branch",
+        "mappedBy": "company"
+      }
+    }
+  }
+  

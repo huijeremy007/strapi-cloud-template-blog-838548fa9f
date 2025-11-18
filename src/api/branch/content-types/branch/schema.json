@@ -1,0 +1,39 @@
+{
+    "kind": "collectionType",
+    "collectionName": "branches",
+    "info": {
+      "singularName": "branch",
+      "pluralName": "branches",
+      "displayName": "Branch"
+    },
+    "options": {
+      "draftAndPublish": false
+    },
+    "attributes": {
+      "name": { "type": "string", "required": true },
+      "code": { "type": "string" },
+      "address": { "type": "richtext" },
+      "contact_no": { "type": "string" },
+      "is_active": { "type": "boolean", "default": true },
+      "company": {
+        "type": "relation",
+        "relation": "manyToOne",
+        "target": "api::company.company",
+        "inversedBy": "branches"
+      },
+      "department": {
+        "type": "relation",
+        "relation": "manyToOne",
+        "target": "api::department.department",
+        "inversedBy": "branches"
+      },
+      "region": {
+        "type": "relation",
+        "relation": "manyToOne",
+        "target": "api::region.region",
+        "inversedBy": "branches"
+      },
+      "logo": { "type": "media", "multiple": false }
+    }
+  }
+  
